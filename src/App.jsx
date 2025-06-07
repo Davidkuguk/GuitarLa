@@ -7,6 +7,9 @@ function App() {
   const [data, setData] = useState(db)
   const [cart, setCart] = useState([])
 
+  const MAX_ELEM = 5;
+  const MIN_ELEM = 0;
+
   //creamos la funcion que añade un elemento al carrito
   function  addToCart(item){
 
@@ -26,7 +29,7 @@ function App() {
 
   function increaseQuantity(id){
     const updateCart = cart.map(item =>{
-      if(item.id === id){
+      if(item.id === id && item.quantity < MAX_ELEM){
         return{
           ...item,
           quantity: item.quantity + 1
@@ -39,7 +42,7 @@ function App() {
 
   function decreaseQuantity(id){
     const updateCart = cart.map(item =>{
-      if(item.id === id){
+      if(item.id === id && item.quantity > MIN_ELEM){
         return{
           ...item,
           quantity: item.quantity - 1
@@ -54,6 +57,10 @@ function App() {
     setCart(prevCart => prevCart.filter(guitar => guitar.id !=id))
   }
 
+  function cleanCart(){
+    setCart([])
+  }
+
   return (
     <>
       <Header
@@ -61,6 +68,7 @@ function App() {
         removeFromCart={removeFromCart}
         increaseQuantity={increaseQuantity}
         decreaseQuantity={decreaseQuantity}
+        cleanCart={cleanCart}
       />
 
       <main className="container-xl mt-5">
