@@ -1,14 +1,28 @@
-import {useState } from "react"
+import {useState, useEffect } from "react"
 import Header from "./Components/Header"
 import Guitar from "./Components/Guitar"
 import { db } from "./data/db.js";
 function App() {
 
+  //creamos una funcion para que al entrar al sitio nos mire en la bbdd
+  //  si tenemos algo almacenado y nos lo devuelve, 
+  // caso contraro nos inicia el state
+  const initialCart = () => {
+     const localStorageCart = localStorage.getItem('cart')
+     return localStorageCart ? JSON.parse(localStorageCart) : []
+  }
+
   const [data, setData] = useState(db)
-  const [cart, setCart] = useState([])
+  const [cart, setCart] = useState(initialCart)
 
   const MAX_ELEM = 5;
   const MIN_ELEM = 0;
+
+  //usamos useEffect para almacenar los datos del carrito en LS 
+  //funciona siempre que el carrito cambie
+  useEffect(() =>{
+    localStorage.setItem('cart', JSON.stringify(cart))
+  }, [cart])
 
   //creamos la funcion que añade un elemento al carrito
   function  addToCart(item){
