@@ -1,3 +1,7 @@
+import {useState, useEffect } from "react"
+import { db } from "./data/db.js";
+
+
 /**
  * Creamos un hook custom para el manejo del carrito
  */

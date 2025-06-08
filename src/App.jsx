@@ -1,12 +1,10 @@
-import {useState, useEffect } from "react"
 import Header from "./Components/Header"
 import Guitar from "./Components/Guitar"
-import { db } from "./data/db.js";
 import { useCart } from "./hooks/useCart.js";
 function App() {
 
   //custom hook para la centralizacion de cart
-  useCart()
+  const {} = useCart
   
 
   return (
