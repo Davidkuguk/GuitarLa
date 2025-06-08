@@ -1,6 +1,6 @@
 import Header from "./Components/Header"
 import Guitar from "./Components/Guitar"
-import { useCart } from "./hooks/useCart.js";
+import { useCart } from "./hooks/useCart";
 function App() {
 
   //custom hook para la centralizacion de cart
@@ -29,7 +29,7 @@ function App() {
           <h2 className="text-center">Nuestra Colección</h2>
 
        <div className="row mt-5">
-          {data.map((guitar) =>
+          {data.map((guitar) =>(
 
             <Guitar
              key={guitar.id} 
@@ -37,7 +37,7 @@ function App() {
              addToCart={addToCart}
              />
 
-          )}
+         ) )}
       </div>
 
       </main>
