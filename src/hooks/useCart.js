@@ -1,5 +1,5 @@
 import {useState, useEffect } from "react"
-import { db } from "./data/db.js";
+import { db } from "../data/db.js";
 
 
 /**
