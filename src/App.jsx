@@ -4,7 +4,15 @@ import { useCart } from "./hooks/useCart.js";
 function App() {
 
   //custom hook para la centralizacion de cart
-  const {} = useCart
+  const {
+          data,
+          cart,
+          addToCart,
+          removeFromCart,
+          decreaseQuantity,
+          increaseQuantity,
+          cleanCart,
+        } = useCart
   
 
   return (
