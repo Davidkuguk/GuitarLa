@@ -2,8 +2,11 @@ import {useState, useEffect } from "react"
 import Header from "./Components/Header"
 import Guitar from "./Components/Guitar"
 import { db } from "./data/db.js";
+import { useCart } from "./hooks/useCart.js";
 function App() {
 
+  //custom hook para la centralizacion de cart
+  useCart()
   //creamos una funcion para que al entrar al sitio nos mire en la bbdd
   //  si tenemos algo almacenado y nos lo devuelve, 
   // caso contraro nos inicia el state
