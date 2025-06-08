@@ -79,6 +79,12 @@ export const useCart = () =>{
       }
     
     return {
-
+        data,
+        cart,
+        addToCart,
+        removeFromCart,
+        decreaseQuantity,
+        increaseQuantity,
+        cleanCart,
     }
 }
